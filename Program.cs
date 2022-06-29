@@ -10,3 +10,33 @@
 //  ["hello", "2", "world", ":-)"] -> ["2", ":-)"]
 // ["1234", "1567", "-2", "computer science"] -> ["-2"]
 // ["Russia", "Denmark", "Kazan"] -> []
+
+
+string[] FillArray()            // функция формирования массива
+{
+    Console.WriteLine("Введите данные через пробел, по окончании ввода нажмите Enter: ");
+    string? enterSymbols = Console.ReadLine();
+    if (enterSymbols == null) { enterSymbols = ""; };
+    char[] separators = new char[] { ',', ' ' };
+    string[] workArray = enterSymbols.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+    return workArray;
+}
+
+string PrintArray(string[] workArray)       //функция печати массива
+{
+    string stringArray = "[";
+    for (int i = 0; i < workArray.Length; i++)
+    {
+        if (i == workArray.Length - 1)
+        {
+            stringArray += $"\"{workArray[i]}\"";
+            break;
+        }
+        stringArray += ($"\"{workArray[i]}\", ");
+    }
+    stringArray += "]";
+    return stringArray;
+}
+string[] workArray = FillArray();
+string firstArray = PrintArray(workArray);
+Console.WriteLine(firstArray);
