@@ -12,17 +12,17 @@
 // ["Russia", "Denmark", "Kazan"] -> []
 
 
-string[] FillArray()            // функция формирования массива
+string[] FillArray()            // Функция формирования массива
 {
-    Console.WriteLine("Введите данные через пробел, по окончании ввода нажмите Enter: ");
+    Console.WriteLine("Введите данные через запятую, по окончании ввода нажмите Enter: ");
     string? enterSymbols = Console.ReadLine();
     if (enterSymbols == null) { enterSymbols = ""; };
-    char[] separators = new char[] { ',', ' ' };
+    char[] separators = new char[] { ',' };
     string[] workArray = enterSymbols.Split(separators, StringSplitOptions.RemoveEmptyEntries);
     return workArray;
 }
 
-string PrintArray(string[] workArray)       //функция печати массива
+string PrintArray(string[] workArray)       //Функция печати массива
 {
     string stringArray = "[";
     for (int i = 0; i < workArray.Length; i++)
