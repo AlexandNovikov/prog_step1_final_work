@@ -37,6 +37,38 @@ string PrintArray(string[] workArray)       //функция печати мас
     stringArray += "]";
     return stringArray;
 }
+
+int CountStringSymbols(string[] workArray)     // Функция подсчета количества строчных символов в введенных данных
+{
+    int counter = 0;
+    foreach (string item in workArray)
+    {
+        if (item.Length <= 3)
+        {
+            counter++;
+        }
+    }
+    return counter;
+}
+
+string[] GenerateNewArray(string[] workArray)       // Функция формирования нового массива из отобранных значений
+{
+    int resultArrayLength = CountStringSymbols(workArray);
+    string[] resultArray = new string[resultArrayLength];
+    int i = 0;
+    foreach (string item in workArray)
+    {
+        if (item.Length <= 3)
+        {
+            resultArray[i] = item;
+            i++;
+        }
+    }
+    return resultArray;
+}
+
 string[] workArray = FillArray();
-string firstArray = PrintArray(workArray);
-Console.WriteLine(firstArray);
+string enteredArray = PrintArray(workArray);
+string[] resultArray = GenerateNewArray(workArray);
+string modifiedArray = PrintArray(resultArray);
+Console.WriteLine(enteredArray + " -> " + modifiedArray);
